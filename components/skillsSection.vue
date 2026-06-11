@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { skills } from '~/data/skills'
+
 const skillIcons: Record<string, string> = {
   'Vue.js': 'vuedotjs',
   'React': 'react',
@@ -24,44 +26,6 @@ const skillIcons: Record<string, string> = {
   'Figma': 'figma',
   'Photoshop': 'photopea/red',
   'REST/API': 'gitconnected',
-}
-
-const skills = {
-  frontend: [
-    'Vue.js',
-    'React',
-    'Nuxt',
-    'JavaScript',
-    'TypeScript',
-    'HTML5',
-    'CSS3',
-  ],
-
-  backend: [
-    'Node.js',
-    'Express',
-    'Laravel',
-    'PHP',
-    'Python',
-    'REST/API',
-  ],
-
-  database: [
-    'MySQL',
-    'PostgreSQL',
-    'MongoDB',
-  ],
-
-  tools: [
-    'Git',
-    'GitHub',
-    'Docker',
-    'VS Code',
-    'Cursor',
-    'Linux',
-    'Figma',
-    'Photoshop',
-  ],
 }
 
 function getSkillIconUrl(skill: string) {

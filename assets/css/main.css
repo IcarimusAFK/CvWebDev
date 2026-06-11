@@ -250,3 +250,86 @@ html.pdf-export body {
 .pdf-mode aside h3.text-glow {
   font-size: 0.65rem !important;
 }
+
+html.ats-export,
+html.ats-export body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  width: auto;
+  min-height: auto;
+  overflow: visible;
+}
+
+.ats-pdf-mode {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto;
+  min-height: auto;
+}
+
+.ats-cv {
+  font-family: Calibri, Arial, 'Liberation Sans', sans-serif;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: #000000;
+  background-color: #ffffff;
+  max-width: 180mm;
+  margin: 0 auto;
+}
+
+.ats-cv__header {
+  margin-bottom: 1rem;
+}
+
+.ats-cv__name {
+  font-size: 18pt;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.ats-cv__title {
+  font-size: 12pt;
+  margin: 0 0 0.5rem;
+}
+
+.ats-cv__contact {
+  font-size: 10pt;
+  margin: 0;
+}
+
+.ats-cv__section {
+  margin-bottom: 1rem;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.ats-cv__section h2 {
+  font-size: 12pt;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.ats-cv__section p {
+  margin: 0 0 0.5rem;
+}
+
+.ats-cv__entry {
+  margin-bottom: 0.75rem;
+}
+
+.ats-cv__entry-title {
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.ats-cv ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.ats-cv li {
+  margin-bottom: 0.15rem;
+}

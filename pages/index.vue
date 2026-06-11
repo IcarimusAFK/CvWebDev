@@ -1,13 +1,23 @@
 <script setup lang="ts">
 const route = useRoute()
 const isPdfMode = computed(() => route.query.pdf === '1')
+const isAtsPdfMode = computed(() => route.query.pdf === 'ats')
+const isExportMode = computed(() => isPdfMode.value || isAtsPdfMode.value)
 
 useHead({
   htmlAttrs: {
-    class: computed(() => (isPdfMode.value ? 'pdf-export' : undefined)),
+    class: computed(() => {
+      if (isAtsPdfMode.value) return 'pdf-export ats-export'
+      if (isPdfMode.value) return 'pdf-export'
+      return undefined
+    }),
   },
   bodyAttrs: {
-    class: computed(() => (isPdfMode.value ? 'pdf-export' : undefined)),
+    class: computed(() => {
+      if (isAtsPdfMode.value) return 'pdf-export ats-export'
+      if (isPdfMode.value) return 'pdf-export'
+      return undefined
+    }),
   },
 })
 </script>
@@ -20,11 +30,17 @@ useHead({
       text-white
       p-8
     "
-    :class="{ 'pdf-mode': isPdfMode }"
+    :class="{
+      'pdf-mode': isPdfMode,
+      'ats-pdf-mode': isAtsPdfMode,
+    }"
   >
-    <PdfExportButton v-if="!isPdfMode" />
+    <PdfExportButton v-if="!isExportMode" />
+
+    <AtsCvView v-if="isAtsPdfMode" />
 
     <div
+      v-else
       class="
         cv-layout
         max-w-7xl

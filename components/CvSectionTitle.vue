@@ -3,6 +3,7 @@ type SectionIcon =
   | 'info'
   | 'about'
   | 'soft-skills'
+  | 'languages'
   | 'experience'
   | 'education'
   | 'technical-skills'
@@ -62,6 +63,28 @@ const props = withDefaults(defineProps<{
       >
         <path
           d="M12 2L14.09 8.26L21 9.27L16 14.14L17.18 21.02L12 17.77L6.82 21.02L8 14.14L3 9.27L9.91 8.26L12 2Z"
+          stroke="#2EE6C5"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+
+      <svg
+        v-else-if="props.icon === 'languages'"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M5 8L11 14M4 14L10 8L12 5M2 5H14M7 2H8"
+          stroke="#2EE6C5"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M22 22L17 12L12 22M14 18H20"
           stroke="#2EE6C5"
           stroke-width="2"
           stroke-linecap="round"

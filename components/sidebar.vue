@@ -116,9 +116,13 @@ import profilePhoto from '~/assets/profile.png'
       
       <div class="mt-10">
 
-        <h3 class="text-glow font-bold mb-5">
+        <CvSectionTitle
+          icon="languages"
+          tag="h3"
+          class="text-glow font-bold mb-5"
+        >
           LANGUES
-        </h3>
+        </CvSectionTitle>
 
         <div
           v-for="language in profile.languages"

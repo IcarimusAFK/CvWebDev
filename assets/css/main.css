@@ -1,0 +1,252 @@
+.text-glow {
+  color: #2EE6C5;
+}
+
+.border-accent {
+  border-color: rgba(46, 230, 197, 0.2);
+}
+
+.border-accent-solid {
+  border-color: #2EE6C5;
+}
+
+.bg-accent {
+  background-color: #2EE6C5;
+}
+
+.profile-photo {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.profile-photo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+html.pdf-export,
+html.pdf-export body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #07111d !important;
+  width: 210mm;
+  min-height: 297mm;
+  overflow: hidden;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.pdf-mode {
+  box-sizing: border-box;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 1.25rem !important;
+  margin: 0 !important;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-mode .fixed {
+  display: none;
+}
+
+.pdf-mode .cv-layout {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  gap: 1rem !important;
+  grid-template-columns: 220px 1fr !important;
+  align-items: start;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-mode .cv-content > * + * {
+  margin-top: 1rem !important;
+}
+
+.pdf-mode aside,
+.pdf-mode section {
+  padding: 1rem !important;
+  border-radius: 1.25rem !important;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-mode aside > div {
+  padding: 1rem !important;
+}
+
+.pdf-mode .profile-photo {
+  width: 6.5rem !important;
+  height: 6.5rem !important;
+  border-width: 3px !important;
+}
+
+.pdf-mode h1 {
+  font-size: 1.35rem !important;
+  margin-top: 0.5rem !important;
+  line-height: 1.2 !important;
+}
+
+.pdf-mode h2 {
+  font-size: 1rem !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.2 !important;
+}
+
+.pdf-mode h3 {
+  font-size: 0.8rem !important;
+  margin-bottom: 0.25rem !important;
+  line-height: 1.2 !important;
+}
+
+.pdf-mode .text-xl {
+  font-size: 0.85rem !important;
+}
+
+.pdf-mode .text-2xl {
+  font-size: 0.8rem !important;
+}
+
+.pdf-mode .text-3xl {
+  font-size: 1rem !important;
+}
+
+.pdf-mode .text-4xl {
+  font-size: 1.35rem !important;
+}
+
+.pdf-mode p,
+.pdf-mode li {
+  font-size: 0.62rem !important;
+  line-height: 1.35 !important;
+}
+
+.pdf-mode .leading-8 {
+  line-height: 1.4 !important;
+}
+
+.pdf-mode .mt-10 {
+  margin-top: 0.85rem !important;
+}
+
+.pdf-mode .mt-6 {
+  margin-top: 0.5rem !important;
+}
+
+.pdf-mode .mt-4 {
+  margin-top: 0.35rem !important;
+}
+
+.pdf-mode .mt-2 {
+  margin-top: 0.25rem !important;
+}
+
+.pdf-mode .mb-8 {
+  margin-bottom: 0.6rem !important;
+}
+
+.pdf-mode .mb-6 {
+  margin-bottom: 0.45rem !important;
+}
+
+.pdf-mode .mb-5 {
+  margin-bottom: 0.35rem !important;
+}
+
+.pdf-mode .mb-4 {
+  margin-bottom: 0.3rem !important;
+}
+
+.pdf-mode .mb-2 {
+  margin-bottom: 0.2rem !important;
+}
+
+.pdf-mode .pb-8 {
+  padding-bottom: 0.6rem !important;
+}
+
+.pdf-mode .pl-8 {
+  padding-left: 0.75rem !important;
+}
+
+.pdf-mode .ml-3 {
+  margin-left: 0.35rem !important;
+}
+
+.pdf-mode .space-y-8 > * + * {
+  margin-top: 0.6rem !important;
+}
+
+.pdf-mode .space-y-4 > * + * {
+  margin-top: 0.3rem !important;
+}
+
+.pdf-mode .space-y-2 > * + * {
+  margin-top: 0.15rem !important;
+}
+
+.pdf-mode ul {
+  margin-top: 0.25rem !important;
+}
+
+.pdf-mode .h-2 {
+  height: 0.3rem !important;
+}
+
+.pdf-mode .flex.flex-wrap.gap-3 {
+  gap: 0.3rem !important;
+}
+
+.skill-chip__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.pdf-mode .skill-chip {
+  padding: 0.1rem 0.35rem !important;
+  border-radius: 0.35rem !important;
+  font-size: 0.45rem !important;
+  line-height: 1.15 !important;
+  gap: 0.25rem !important;
+}
+
+.pdf-mode .skill-chip__icon {
+  width: 0.65rem !important;
+  height: 0.65rem !important;
+}
+
+.pdf-mode .cv-skills-section h2 {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.pdf-mode .cv-skills-section h3 {
+  font-size: 0.55rem !important;
+  margin-bottom: 0.2rem !important;
+}
+
+.pdf-mode .cv-skills-section .space-y-8 > * + * {
+  margin-top: 0.35rem !important;
+}
+
+.pdf-mode aside .mb-5 > .mb-2,
+.pdf-mode aside .mb-5 > .text-slate-400 {
+  font-size: 0.5rem !important;
+  line-height: 1.2 !important;
+}
+
+.pdf-mode aside h3.text-glow {
+  font-size: 0.65rem !important;
+}

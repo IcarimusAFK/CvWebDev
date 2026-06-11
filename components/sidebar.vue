@@ -1,0 +1,136 @@
+<script setup lang="ts">
+import { profile } from '~/data/profile'
+import profilePhoto from '~/assets/profile.png'
+</script>
+
+<template>
+  <aside
+    class="
+      bg-slate-900/70
+      border
+      border-accent
+      rounded-3xl
+      overflow-hidden
+      backdrop-blur
+    "
+  >
+    <div class="p-8">
+
+      <div class="profile-photo mx-auto border-4 border-accent-solid">
+        <img
+          :src="profilePhoto"
+          alt="Photo de profil"
+          class="profile-photo__img"
+        />
+      </div>
+
+      <h1
+        class="
+          text-4xl
+          font-bold
+          mt-6
+          text-center
+        "
+      >
+        {{ profile.name }}
+      </h1>
+
+      <p
+        class="
+          text-glow
+          text-xl
+          text-center
+          mt-2
+        "
+      >
+        {{ profile.title }}
+      </p>
+
+      <div class="mt-10 space-y-4">
+
+        <h3 class="text-glow font-bold">
+          INFORMATIONS
+        </h3>
+
+        <p>{{ profile.location }}</p>
+        <p>{{ profile.email }}</p>
+        <p>{{ profile.phone }}</p>
+        <p>{{ profile.linkedin }}</p>
+        <p>{{ profile.github }}</p>
+
+      </div>
+
+      <div class="mt-10">
+
+        <h3 class="text-glow font-bold mb-4">
+          À PROPOS
+        </h3>
+
+        <p class="leading-8 text-slate-300">
+          {{ profile.about }}
+        </p>
+
+      </div>
+
+      <div class="mt-10">
+
+        <h3 class="text-glow font-bold mb-5">
+          COMPÉTENCES CLÉS
+        </h3>
+
+        <div
+          v-for="skill in profile.softSkills"
+          :key="skill.label"
+          class="mb-5"
+        >
+          <div class="mb-2">
+            {{ skill.label }}
+          </div>
+
+        </div>
+
+      </div>
+
+      
+      <div class="mt-10">
+
+        <h3 class="text-glow font-bold mb-5">
+          LANGUES
+        </h3>
+
+        <div
+          v-for="language in profile.languages"
+          :key="language.label"
+          class="mb-5"
+        >
+          <div class="mb-2">
+            {{ language.label }}
+          </div>
+
+          <div 
+            v-if="language.level"
+            class="text-slate-400"
+          >
+            {{ language.level }}
+          </div>
+
+          <div class="h-2 bg-slate-700 rounded-full">
+            <div
+              class="
+                h-2
+                rounded-full
+                bg-accent
+              "
+              :style="{
+                width: `${language.value}%`
+              }"
+            />
+          </div>
+
+        </div>
+
+        </div>
+
+    </div>
+  </aside>
+</template>

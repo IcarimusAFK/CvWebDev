@@ -24,6 +24,29 @@
   line-height: 1.2;
 }
 
+.cv-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+}
+
+.cv-contact-item__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-contact-item__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cv-contact-item__text {
+  line-height: 1.4;
+}
+
 .border-accent {
   border-color: rgba(46, 230, 197, 0.2);
 }
@@ -280,6 +303,15 @@ html.pdf-export body {
 
 .pdf-mode .cv-section-title {
   gap: 0.25rem !important;
+}
+
+.pdf-mode .cv-contact-item {
+  gap: 0.3rem !important;
+}
+
+.pdf-mode .cv-contact-item__icon svg {
+  width: 0.55rem !important;
+  height: 0.55rem !important;
 }
 
 html.ats-export,

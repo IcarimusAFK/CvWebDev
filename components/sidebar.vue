@@ -56,11 +56,21 @@ import profilePhoto from '~/assets/profile.png'
           INFORMATIONS
         </CvSectionTitle>
 
-        <p>{{ profile.location }}</p>
-        <p>{{ profile.email }}</p>
-        <p>{{ profile.phone }}</p>
-        <p>{{ profile.linkedin }}</p>
-        <p>{{ profile.github }}</p>
+        <CvContactItem icon="location">
+          {{ profile.location }}
+        </CvContactItem>
+        <CvContactItem icon="email">
+          {{ profile.email }}
+        </CvContactItem>
+        <CvContactItem icon="phone">
+          {{ profile.phone }}
+        </CvContactItem>
+        <CvContactItem icon="link">
+          {{ profile.linkedin }}
+        </CvContactItem>
+        <CvContactItem icon="globe">
+          {{ profile.github }}
+        </CvContactItem>
 
       </div>
 

@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const route = useRoute()
+const { locale } = useCvLocale()
 const isPdfMode = computed(() => route.query.pdf === '1')
 const isAtsPdfMode = computed(() => route.query.pdf === 'ats')
 const isExportMode = computed(() => isPdfMode.value || isAtsPdfMode.value)
 
 useHead({
   htmlAttrs: {
+    lang: computed(() => locale.value),
     class: computed(() => {
       if (isAtsPdfMode.value) return 'pdf-export ats-export'
       if (isPdfMode.value) return 'pdf-export'

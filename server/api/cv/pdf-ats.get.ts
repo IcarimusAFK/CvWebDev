@@ -1,10 +1,12 @@
 import { chromium } from 'playwright'
-import { profile } from '~/data/profile'
+import { getCvContent, parseCvLocale } from '~/data/cv'
 
 export default defineEventHandler(async (event) => {
+  const locale = parseCvLocale(getQuery(event).lang)
+  const { profile } = getCvContent(locale)
   const requestUrl = getRequestURL(event)
   const baseUrl = `${requestUrl.protocol}//${requestUrl.host}`
-  const targetUrl = `${baseUrl}/?pdf=ats`
+  const targetUrl = `${baseUrl}/?pdf=ats&lang=${locale}`
 
   let browser
 
@@ -33,7 +35,7 @@ export default defineEventHandler(async (event) => {
       },
     })
 
-    const filename = `cv-ats-${profile.name.toLowerCase().replace(/\s+/g, '-')}.pdf`
+    const filename = `cv-ats-${profile.name.toLowerCase().replace(/\s+/g, '-')}${locale === 'en' ? '-en' : ''}.pdf`
 
     setHeader(event, 'Content-Type', 'application/pdf')
     setHeader(event, 'Content-Disposition', `attachment; filename="${filename}"`)

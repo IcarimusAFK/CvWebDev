@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { profile } from '~/data/profile'
-import { experiences } from '~/data/experiences'
-import { education } from '~/data/education'
-import { allTechnicalSkills } from '~/data/skills'
+const { profile, experiences, education, allTechnicalSkills, labels } = useCvData()
 </script>
 
 <template>
@@ -20,12 +17,12 @@ import { allTechnicalSkills } from '~/data/skills'
     </header>
 
     <section class="ats-cv__section">
-      <h2>À propos</h2>
+      <h2>{{ labels.ats.about }}</h2>
       <p>{{ profile.about.trim() }}</p>
     </section>
 
     <section class="ats-cv__section">
-      <h2>Expériences professionnelles</h2>
+      <h2>{{ labels.ats.experience }}</h2>
       <div
         v-for="job in experiences"
         :key="`${job.title}-${job.company}`"
@@ -46,7 +43,7 @@ import { allTechnicalSkills } from '~/data/skills'
     </section>
 
     <section class="ats-cv__section">
-      <h2>Formations</h2>
+      <h2>{{ labels.ats.education }}</h2>
       <div
         v-for="item in education"
         :key="item.title"
@@ -59,7 +56,7 @@ import { allTechnicalSkills } from '~/data/skills'
     </section>
 
     <section class="ats-cv__section">
-      <h2>Compétences techniques</h2>
+      <h2>{{ labels.ats.technicalSkills }}</h2>
       <ul>
         <li
           v-for="skill in allTechnicalSkills"
@@ -71,7 +68,7 @@ import { allTechnicalSkills } from '~/data/skills'
     </section>
 
     <section class="ats-cv__section">
-      <h2>Compétences clés</h2>
+      <h2>{{ labels.ats.softSkills }}</h2>
       <ul>
         <li
           v-for="skill in profile.softSkills"
@@ -83,7 +80,7 @@ import { allTechnicalSkills } from '~/data/skills'
     </section>
 
     <section class="ats-cv__section">
-      <h2>Langues</h2>
+      <h2>{{ labels.ats.languages }}</h2>
       <ul>
         <li
           v-for="language in profile.languages"

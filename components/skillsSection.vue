@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { skills } from '~/data/skills'
+import type { CvSkills } from '~/data/cv'
+
+const { skills, labels } = useCvData()
 
 const skillIcons: Record<string, string> = {
   'Vue.js': 'vuedotjs',
@@ -33,6 +35,10 @@ function getSkillIconUrl(skill: string) {
   if (!slug) return null
   return `https://cdn.simpleicons.org/${slug}`
 }
+
+function getCategoryLabel(category: keyof CvSkills) {
+  return labels.value.skillCategories[category]
+}
 </script>
 
 <template>
@@ -41,13 +47,16 @@ function getSkillIconUrl(skill: string) {
       icon="technical-skills"
       class="text-glow text-3xl font-bold mb-8"
     >
-      COMPÉTENCES TECHNIQUES
+      {{ labels.sections.technicalSkills }}
     </CvSectionTitle>
 
     <div class="space-y-8">
-      <div v-for="(items, category) in skills" :key="category">
+      <div
+        v-for="(items, category) in skills"
+        :key="category"
+      >
         <h3 class="uppercase text-glow mb-4 font-semibold">
-          {{ category }}
+          {{ getCategoryLabel(category) }}
         </h3>
 
         <div class="flex flex-wrap gap-3">

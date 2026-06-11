@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { profile } from '~/data/profile'
 import profilePhoto from '~/assets/profile.png'
+
+const { profile, labels } = useCvData()
 </script>
 
 <template>
@@ -19,7 +20,7 @@ import profilePhoto from '~/assets/profile.png'
       <div class="profile-photo mx-auto border-4 border-accent-solid">
         <img
           :src="profilePhoto"
-          alt="Photo de profil"
+          :alt="labels.ui.profilePhotoAlt"
           class="profile-photo__img"
         />
       </div>
@@ -53,7 +54,7 @@ import profilePhoto from '~/assets/profile.png'
           tag="h3"
           class="text-glow font-bold"
         >
-          INFORMATIONS
+          {{ labels.sections.info }}
         </CvSectionTitle>
 
         <CvContactItem icon="location">
@@ -81,7 +82,7 @@ import profilePhoto from '~/assets/profile.png'
           tag="h3"
           class="text-glow font-bold mb-4"
         >
-          À PROPOS
+          {{ labels.sections.about }}
         </CvSectionTitle>
 
         <p class="leading-8 text-slate-300">
@@ -97,7 +98,7 @@ import profilePhoto from '~/assets/profile.png'
           tag="h3"
           class="text-glow font-bold mb-5"
         >
-          COMPÉTENCES CLÉS
+          {{ labels.sections.softSkills }}
         </CvSectionTitle>
 
         <div
@@ -113,7 +114,6 @@ import profilePhoto from '~/assets/profile.png'
 
       </div>
 
-      
       <div class="mt-10">
 
         <CvSectionTitle
@@ -121,7 +121,7 @@ import profilePhoto from '~/assets/profile.png'
           tag="h3"
           class="text-glow font-bold mb-5"
         >
-          LANGUES
+          {{ labels.sections.languages }}
         </CvSectionTitle>
 
         <div
@@ -133,7 +133,7 @@ import profilePhoto from '~/assets/profile.png'
             {{ language.label }}
           </div>
 
-          <div 
+          <div
             v-if="language.level"
             class="text-slate-400"
           >
@@ -148,14 +148,14 @@ import profilePhoto from '~/assets/profile.png'
                 bg-accent
               "
               :style="{
-                width: `${language.value}%`
+                width: `${language.value}%`,
               }"
             />
           </div>
 
         </div>
 
-        </div>
+      </div>
 
     </div>
   </aside>

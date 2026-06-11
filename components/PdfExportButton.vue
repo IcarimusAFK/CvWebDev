@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import type { CvLocale } from '~/data/cv'
+
+const { locale, labels } = useCvData()
+const { setLocale } = useCvLocale()
+
 const loading = ref<'design' | 'ats' | null>(null)
 const error = ref('')
 
@@ -7,7 +12,7 @@ async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'd
   error.value = ''
 
   try {
-    const response = await fetch(endpoint)
+    const response = await fetch(`${endpoint}?lang=${locale.value}`)
 
     if (!response.ok) {
       throw new Error('Échec de la génération')
@@ -26,17 +31,69 @@ async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'd
   }
   catch {
     error.value = type === 'ats'
-      ? 'Impossible de générer le PDF ATS. Réessayez.'
-      : 'Impossible de générer le PDF. Réessayez.'
+      ? labels.value.ui.atsPdfError
+      : labels.value.ui.pdfError
   }
   finally {
     loading.value = null
   }
 }
+
+function switchLocale(nextLocale: CvLocale) {
+  setLocale(nextLocale)
+}
 </script>
 
 <template>
   <div class="fixed top-6 right-6 z-50 flex flex-col items-end gap-2">
+    <div class="flex gap-2">
+      <button
+        type="button"
+        class="
+          rounded-xl
+          border
+          px-4
+          py-2
+          text-sm
+          font-semibold
+          backdrop-blur
+          transition
+          disabled:cursor-not-allowed
+          disabled:opacity-60
+        "
+        :class="locale === 'fr'
+          ? 'border-accent bg-slate-800 text-glow'
+          : 'border-slate-600 bg-slate-900/90 text-slate-300 hover:bg-slate-800'"
+        :disabled="loading !== null"
+        @click="switchLocale('fr')"
+      >
+        {{ labels.ui.switchToFrench }}
+      </button>
+
+      <button
+        type="button"
+        class="
+          rounded-xl
+          border
+          px-4
+          py-2
+          text-sm
+          font-semibold
+          backdrop-blur
+          transition
+          disabled:cursor-not-allowed
+          disabled:opacity-60
+        "
+        :class="locale === 'en'
+          ? 'border-accent bg-slate-800 text-glow'
+          : 'border-slate-600 bg-slate-900/90 text-slate-300 hover:bg-slate-800'"
+        :disabled="loading !== null"
+        @click="switchLocale('en')"
+      >
+        {{ labels.ui.switchToEnglish }}
+      </button>
+    </div>
+
     <button
       type="button"
       class="
@@ -61,8 +118,8 @@ async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'd
       :disabled="loading !== null"
       @click="downloadPdf('/api/cv/pdf', 'design')"
     >
-      <span v-if="loading === 'design'">Génération…</span>
-      <span v-else>Télécharger en PDF</span>
+      <span v-if="loading === 'design'">{{ labels.ui.generating }}</span>
+      <span v-else>{{ labels.ui.downloadPdf }}</span>
     </button>
 
     <button
@@ -89,8 +146,8 @@ async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'd
       :disabled="loading !== null"
       @click="downloadPdf('/api/cv/pdf-ats', 'ats')"
     >
-      <span v-if="loading === 'ats'">Génération…</span>
-      <span v-else>Télécharger PDF ATS</span>
+      <span v-if="loading === 'ats'">{{ labels.ui.generating }}</span>
+      <span v-else>{{ labels.ui.downloadAtsPdf }}</span>
     </button>
 
     <p

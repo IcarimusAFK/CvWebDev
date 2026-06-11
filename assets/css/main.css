@@ -2,6 +2,28 @@
   color: #2EE6C5;
 }
 
+.cv-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-section-title__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-section-title__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cv-section-title__text {
+  line-height: 1.2;
+}
+
 .border-accent {
   border-color: rgba(46, 230, 197, 0.2);
 }
@@ -249,6 +271,15 @@ html.pdf-export body {
 
 .pdf-mode aside h3.text-glow {
   font-size: 0.65rem !important;
+}
+
+.pdf-mode .cv-section-title__icon svg {
+  width: 0.7rem !important;
+  height: 0.7rem !important;
+}
+
+.pdf-mode .cv-section-title {
+  gap: 0.25rem !important;
 }
 
 html.ats-export,

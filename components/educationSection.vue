@@ -5,9 +5,12 @@ import { education } from '~/data/education'
 <template>
 
     <section class="bg-slate-900/70 rounded-3xl p-8 border border-accent">
-        <h2 class="text-glow text-3xl font-bold mb-8">
+        <CvSectionTitle
+            icon="education"
+            class="text-glow text-3xl font-bold mb-8"
+        >
             FORMATIONS
-        </h2>
+        </CvSectionTitle>
 
         <div v-for="item in education" :key="item.title" class="flex justify-between mb-6">
 

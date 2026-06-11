@@ -37,9 +37,12 @@ function getSkillIconUrl(skill: string) {
 
 <template>
   <section class="cv-skills-section bg-slate-900/70 rounded-3xl p-8 border border-accent">
-    <h2 class="text-glow text-3xl font-bold mb-8">
+    <CvSectionTitle
+      icon="technical-skills"
+      class="text-glow text-3xl font-bold mb-8"
+    >
       COMPÉTENCES TECHNIQUES
-    </h2>
+    </CvSectionTitle>
 
     <div class="space-y-8">
       <div v-for="(items, category) in skills" :key="category">

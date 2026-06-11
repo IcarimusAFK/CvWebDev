@@ -48,9 +48,13 @@ import profilePhoto from '~/assets/profile.png'
 
       <div class="mt-10 space-y-4">
 
-        <h3 class="text-glow font-bold">
+        <CvSectionTitle
+          icon="info"
+          tag="h3"
+          class="text-glow font-bold"
+        >
           INFORMATIONS
-        </h3>
+        </CvSectionTitle>
 
         <p>{{ profile.location }}</p>
         <p>{{ profile.email }}</p>
@@ -62,9 +66,13 @@ import profilePhoto from '~/assets/profile.png'
 
       <div class="mt-10">
 
-        <h3 class="text-glow font-bold mb-4">
+        <CvSectionTitle
+          icon="about"
+          tag="h3"
+          class="text-glow font-bold mb-4"
+        >
           À PROPOS
-        </h3>
+        </CvSectionTitle>
 
         <p class="leading-8 text-slate-300">
           {{ profile.about }}
@@ -74,9 +82,13 @@ import profilePhoto from '~/assets/profile.png'
 
       <div class="mt-10">
 
-        <h3 class="text-glow font-bold mb-5">
+        <CvSectionTitle
+          icon="soft-skills"
+          tag="h3"
+          class="text-glow font-bold mb-5"
+        >
           COMPÉTENCES CLÉS
-        </h3>
+        </CvSectionTitle>
 
         <div
           v-for="skill in profile.softSkills"

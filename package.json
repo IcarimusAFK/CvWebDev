@@ -7,14 +7,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs",
     "postinstall": "playwright install chromium"
   },
   "dependencies": {
-    "nuxt": "^3.17.4",
-    "playwright": "^1.52.0"
-  },
-  "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "nuxt": "^3.17.4",
+    "playwright": "^1.52.0",
     "typescript": "^5.8.3"
   }
 }

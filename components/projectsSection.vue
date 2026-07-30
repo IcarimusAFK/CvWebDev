@@ -141,7 +141,10 @@ function isSvgImage(src: string) {
               </div>
             </div>
 
-            <div class="project-card__overlay">
+            <div
+              class="project-card__overlay"
+              aria-hidden="true"
+            >
               <div class="project-card__content">
                 <h3 class="project-card__title">
                   {{ project.title }}
@@ -162,6 +165,15 @@ function isSvgImage(src: string) {
                 </ul>
               </div>
             </div>
+
+            <a
+              v-if="project.url"
+              :href="project.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card__link"
+              :aria-label="`Visiter ${project.title}`"
+            />
           </div>
         </article>
       </div>
@@ -230,6 +242,7 @@ function isSvgImage(src: string) {
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 0.25rem 0;
+  min-width: 0;
 }
 
 .projects-carousel__track::-webkit-scrollbar {
@@ -239,15 +252,31 @@ function isSvgImage(src: string) {
 .projects-carousel__slide {
   flex: 0 0 min(100%, 520px);
   scroll-snap-align: center;
+  min-width: 0;
 }
 
 .project-card {
   position: relative;
+  width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 1rem;
   border: 1px solid rgba(46, 230, 197, 0.2);
   background: linear-gradient(135deg, #07111d 0%, #0f172a 100%);
+  isolation: isolate;
+}
+
+.project-card__link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.project-card__link:focus-visible {
+  outline: 2px solid #2ee6c5;
+  outline-offset: 3px;
 }
 
 .project-card__shell {
@@ -310,12 +339,14 @@ function isSvgImage(src: string) {
 .project-card__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
   background: rgba(7, 17, 29, 0.55);
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.35s ease;
 }
 
@@ -367,6 +398,10 @@ function isSvgImage(src: string) {
 .group:hover .project-card__overlay,
 .group:focus-within .project-card__overlay {
   opacity: 1;
+}
+
+.group:has(.project-card__link):hover {
+  cursor: pointer;
 }
 
 .group:hover .project-card__content,

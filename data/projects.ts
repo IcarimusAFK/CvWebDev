@@ -28,12 +28,14 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
       title: 'Plateforme Marché de skins Counter-Strike',
       description: 'Plateforme de gestion de marché de skins Counter-Strike, utilisant un LLM pour la récupération des données et l\'analyse des prix',
       image: '/projects/cs2.png',
+      url: 'https://github.com/IcarimusAFK/CS2Genie',
       technologies: ['Vue.js', 'Node.js', 'OLLAMA', 'Steam API', 'PostgreSQL'],
     },
     {
       title: 'Plateforme Tournoi bar multisport',
       description: 'Plateforme de gestion de tournoi bar multisport, avec système de salle de tournoi avec connexion par téléphone et gestion du temps et des points par équipe.',
       image: '/projects/multi-sport-tournament.svg',
+      url: 'https://github.com/IcarimusAFK/BeerPongTournament',
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {
@@ -63,12 +65,14 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
       title: 'Counter-Strike skins market platform',
       description: 'Platform for managing the Counter-Strike skins market, using an LLM to retrieve data and analyze prices',
       image: '/projects/cs2.png',
+      url: 'https://github.com/IcarimusAFK/CS2Genie',
       technologies: ['Vue.js', 'Node.js', 'OLLAMA', 'Steam API', 'PostgreSQL', 'OpenAI API'],
     },
     {
       title: 'Bar multisport tournament platform',
       description: 'Platform for managing bar multisport tournaments, with system of tournament rooms with phone connection and management of time and points by team.',
       image: '/projects/multi-sport-tournament.svg',
+      url: 'https://github.com/IcarimusAFK/BeerPongTournament',
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {

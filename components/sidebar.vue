@@ -2,6 +2,10 @@
 import profilePhoto from '~/assets/profile.png'
 
 const { profile, labels } = useCvData()
+
+function toExternalUrl(value: string) {
+  return value.startsWith('http') ? value : `https://${value}`
+}
 </script>
 
 <template>
@@ -66,10 +70,16 @@ const { profile, labels } = useCvData()
         <CvContactItem icon="phone">
           {{ profile.phone }}
         </CvContactItem>
-        <CvContactItem icon="link">
+        <CvContactItem
+          icon="link"
+          :href="toExternalUrl(profile.linkedin)"
+        >
           {{ profile.linkedin }}
         </CvContactItem>
-        <CvContactItem icon="globe">
+        <CvContactItem
+          icon="globe"
+          :href="toExternalUrl(profile.github)"
+        >
           {{ profile.github }}
         </CvContactItem>
 

@@ -1,13 +1,21 @@
 <script setup lang="ts">
 type ContactIcon = 'location' | 'email' | 'phone' | 'link' | 'globe'
 
-defineProps<{
+const props = defineProps<{
   icon: ContactIcon
+  href?: string
 }>()
 </script>
 
 <template>
-  <p class="cv-contact-item">
+  <component
+    :is="props.href ? 'a' : 'p'"
+    :href="props.href"
+    :target="props.href ? '_blank' : undefined"
+    :rel="props.href ? 'noopener noreferrer' : undefined"
+    class="cv-contact-item"
+    :class="{ 'cv-contact-item--link': props.href }"
+  >
     <span
       class="cv-contact-item__icon"
       aria-hidden="true"
@@ -131,5 +139,5 @@ defineProps<{
     <span class="cv-contact-item__text">
       <slot />
     </span>
-  </p>
+  </component>
 </template>

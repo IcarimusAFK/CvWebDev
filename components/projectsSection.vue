@@ -48,6 +48,10 @@ function onCarouselScroll() {
 
 const canGoPrevious = computed(() => activeIndex.value > 0)
 const canGoNext = computed(() => activeIndex.value < projects.value.length - 1)
+
+function isSvgImage(src: string) {
+  return src.toLowerCase().endsWith('.svg')
+}
 </script>
 
 <template>
@@ -110,11 +114,32 @@ const canGoNext = computed(() => activeIndex.value < projects.value.length - 1)
         >
           <div class="project-card group">
             <img
+              v-if="isSvgImage(project.image)"
               :src="project.image"
               :alt="project.title"
-              class="project-card__image"
+              class="project-card__image project-card__image--native"
               loading="lazy"
             >
+
+            <div
+              v-else
+              class="project-card__shell"
+            >
+              <div class="project-card__frame">
+                <p class="project-card__eyebrow">
+                  {{ project.title }}
+                </p>
+
+                <div class="project-card__media">
+                  <img
+                    :src="project.image"
+                    :alt="project.title"
+                    class="project-card__image"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </div>
 
             <div class="project-card__overlay">
               <div class="project-card__content">
@@ -222,14 +247,64 @@ const canGoNext = computed(() => activeIndex.value < projects.value.length - 1)
   overflow: hidden;
   border-radius: 1rem;
   border: 1px solid rgba(46, 230, 197, 0.2);
-  background-color: #0f172a;
+  background: linear-gradient(135deg, #07111d 0%, #0f172a 100%);
+}
+
+.project-card__shell {
+  position: absolute;
+  inset: 0;
+  padding: 5%;
+}
+
+.project-card__frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(46, 230, 197, 0.25);
+  background: rgba(30, 41, 59, 0.55);
+  overflow: hidden;
+}
+
+.project-card__eyebrow {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0.85rem 1rem 0.35rem;
+  text-align: center;
+  font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #2ee6c5;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.project-card__media {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1rem 1rem;
 }
 
 .project-card__image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.project-card__image--native {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
+  max-height: none;
   object-fit: cover;
-  transition: filter 0.35s ease, transform 0.35s ease;
 }
 
 .project-card__overlay {

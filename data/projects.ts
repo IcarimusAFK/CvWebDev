@@ -30,7 +30,7 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
     },
     {
       title: 'Plateforme Tournoi bar multisport',
-      description: 'Plateforme de gestion de tournoi bar multisport, de la conception Figma à la mise en production.',
+      description: 'Plateforme de gestion de tournoi bar multisport, avec système de salle de tournoi avec connexion par téléphone et gestion du temps et des points par équipe.',
       image: '/projects/multi-sport-tournament.svg',
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
@@ -62,7 +62,7 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
     },
     {
       title: 'Bar multisport tournament platform',
-      description: 'Platform for managing bar multisport tournaments, from Figma design to production deployment.',
+      description: 'Platform for managing bar multisport tournaments, with system of tournament rooms with phone connection and management of time and points by team.',
       image: '/projects/multi-sport-tournament.svg',
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },

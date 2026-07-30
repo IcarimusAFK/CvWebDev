@@ -1,4 +1,5 @@
 import { getAllTechnicalSkills, getCvContent } from '~/data/cv'
+import { getProjects } from '~/data/projects'
 
 export function useCvData() {
   const { locale } = useCvLocale()
@@ -9,6 +10,7 @@ export function useCvData() {
   const education = computed(() => content.value.education)
   const skills = computed(() => content.value.skills)
   const labels = computed(() => content.value.labels)
+  const projects = computed(() => getProjects(locale.value))
   const allTechnicalSkills = computed(() => getAllTechnicalSkills(skills.value))
 
   return {
@@ -19,6 +21,7 @@ export function useCvData() {
     education,
     skills,
     labels,
+    projects,
     allTechnicalSkills,
   }
 }

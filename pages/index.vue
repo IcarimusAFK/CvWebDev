@@ -60,5 +60,7 @@ useHead({
         <skillsSection />
       </div>
     </div>
+
+    <ProjectsSection v-if="!isExportMode" />
   </main>
 </template>

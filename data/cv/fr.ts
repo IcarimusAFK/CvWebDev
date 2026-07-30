@@ -90,6 +90,7 @@ export const frCv: CvContent = {
       experience: 'EXPÉRIENCES PROFESSIONNELLES',
       education: 'FORMATIONS',
       technicalSkills: 'COMPÉTENCES TECHNIQUES',
+      webProjects: 'PROJETS WEB',
     },
     skillCategories: {
       frontend: 'frontend',

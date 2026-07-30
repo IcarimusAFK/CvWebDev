@@ -90,6 +90,7 @@ export const enCv: CvContent = {
       experience: 'PROFESSIONAL EXPERIENCE',
       education: 'EDUCATION',
       technicalSkills: 'TECHNICAL SKILLS',
+      webProjects: 'WEB PROJECTS',
     },
     skillCategories: {
       frontend: 'Frontend',

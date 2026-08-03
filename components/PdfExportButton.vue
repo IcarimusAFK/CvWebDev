@@ -6,7 +6,7 @@ const { setLocale } = useCvLocale()
 
 const CV_PDF_PATH = '/cv-colin-van-migom.pdf'
 
-const loading = ref<'ats' | null>(null)
+const loading = ref<'design' | 'ats' | null>(null)
 const error = ref('')
 const showAtsButton = ref(false)
 
@@ -22,6 +22,36 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('hashchange', updateAtsVisibility)
 })
+
+async function downloadDesignPdf() {
+  loading.value = 'design'
+  error.value = ''
+
+  try {
+    const response = await fetch(`/api/cv/pdf?lang=${locale.value}`)
+
+    if (!response.ok) {
+      throw new Error('Échec de la génération')
+    }
+
+    const blob = await response.blob()
+    const disposition = response.headers.get('Content-Disposition')
+    const filename = disposition?.match(/filename="(.+)"/)?.[1] ?? 'cv.pdf'
+
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = filename
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+  catch {
+    error.value = labels.value.ui.pdfError
+  }
+  finally {
+    loading.value = null
+  }
+}
 
 async function downloadAtsPdf() {
   loading.value = 'ats'
@@ -140,6 +170,39 @@ function switchLocale(nextLocale: CvLocale) {
     >
       {{ labels.ui.downloadPdf }}
     </a>
+
+    <button
+      v-if="showAtsButton"
+      type="button"
+      class="
+        cv-toolbar__btn
+        flex
+        items-center
+        justify-center
+        gap-2
+        rounded-xl
+        border
+        border-slate-600
+        bg-slate-900/90
+        px-4
+        py-2.5
+        text-sm
+        font-semibold
+        text-slate-200
+        backdrop-blur
+        transition
+        hover:bg-slate-800
+        disabled:cursor-not-allowed
+        disabled:opacity-60
+        sm:px-5
+        sm:py-3
+      "
+      :disabled="loading !== null"
+      @click="downloadDesignPdf"
+    >
+      <span v-if="loading === 'design'">{{ labels.ui.generating }}</span>
+      <span v-else>{{ labels.ui.generatePdf }}</span>
+    </button>
 
     <button
       v-if="showAtsButton"

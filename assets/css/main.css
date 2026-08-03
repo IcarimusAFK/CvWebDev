@@ -413,6 +413,13 @@ html.pdf-export body {
 
 .pdf-mode .cv-contact-item {
   gap: 0.3rem !important;
+  font-size: 0.62rem !important;
+  line-height: 1.35 !important;
+}
+
+.pdf-mode .cv-contact-item__text {
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
 .pdf-mode .cv-contact-item__icon svg {

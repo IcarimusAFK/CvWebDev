@@ -48,6 +48,7 @@ export interface CvLabels {
   ui: {
     downloadPdf: string
     downloadAtsPdf: string
+    generatePdf: string
     generating: string
     pdfError: string
     atsPdfError: string

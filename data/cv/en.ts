@@ -101,6 +101,7 @@ export const enCv: CvContent = {
     ui: {
       downloadPdf: 'Download PDF',
       downloadAtsPdf: 'Download ATS PDF',
+      generatePdf: 'Generate PDF',
       generating: 'Generating…',
       pdfError: 'Unable to generate PDF. Please try again.',
       atsPdfError: 'Unable to generate ATS PDF. Please try again.',

@@ -101,6 +101,7 @@ export const frCv: CvContent = {
     ui: {
       downloadPdf: 'Télécharger en PDF',
       downloadAtsPdf: 'Télécharger PDF ATS',
+      generatePdf: 'Générer le PDF',
       generating: 'Génération…',
       pdfError: 'Impossible de générer le PDF. Réessayez.',
       atsPdfError: 'Impossible de générer le PDF ATS. Réessayez.',

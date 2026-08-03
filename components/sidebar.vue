@@ -19,7 +19,7 @@ function toExternalUrl(value: string) {
       backdrop-blur
     "
   >
-    <div class="p-8">
+    <div class="p-5 sm:p-6 lg:p-8">
 
       <div class="profile-photo mx-auto border-4 border-accent-solid">
         <img
@@ -31,10 +31,13 @@ function toExternalUrl(value: string) {
 
       <h1
         class="
-          text-4xl
+          text-2xl
+          sm:text-3xl
+          lg:text-4xl
           font-bold
           mt-6
           text-center
+          break-words
         "
       >
         {{ profile.name }}
@@ -43,7 +46,8 @@ function toExternalUrl(value: string) {
       <p
         class="
           text-glow
-          text-xl
+          text-lg
+          sm:text-xl
           text-center
           mt-2
         "
@@ -95,7 +99,7 @@ function toExternalUrl(value: string) {
           {{ labels.sections.about }}
         </CvSectionTitle>
 
-        <p class="leading-8 text-slate-300">
+        <p class="leading-7 sm:leading-8 text-slate-300 break-words">
           {{ profile.about }}
         </p>
 

@@ -42,10 +42,10 @@ function getCategoryLabel(category: keyof CvSkills) {
 </script>
 
 <template>
-  <section class="cv-skills-section bg-slate-900/70 rounded-3xl p-8 border border-accent">
+  <section class="cv-skills-section bg-slate-900/70 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-accent">
     <CvSectionTitle
       icon="technical-skills"
-      class="text-glow text-3xl font-bold mb-8"
+      class="text-glow text-2xl sm:text-3xl font-bold mb-6 sm:mb-8"
     >
       {{ labels.sections.technicalSkills }}
     </CvSectionTitle>

@@ -4,15 +4,31 @@ import type { CvLocale } from '~/data/cv'
 const { locale, labels } = useCvData()
 const { setLocale } = useCvLocale()
 
-const loading = ref<'design' | 'ats' | null>(null)
-const error = ref('')
+const CV_PDF_PATH = '/cv-colin-van-migom.pdf'
 
-async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'design' | 'ats') {
-  loading.value = type
+const loading = ref<'ats' | null>(null)
+const error = ref('')
+const showAtsButton = ref(false)
+
+function updateAtsVisibility() {
+  showAtsButton.value = window.location.hash === '#ats'
+}
+
+onMounted(() => {
+  updateAtsVisibility()
+  window.addEventListener('hashchange', updateAtsVisibility)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('hashchange', updateAtsVisibility)
+})
+
+async function downloadAtsPdf() {
+  loading.value = 'ats'
   error.value = ''
 
   try {
-    const response = await fetch(`${endpoint}?lang=${locale.value}`)
+    const response = await fetch(`/api/cv/pdf-ats?lang=${locale.value}`)
 
     if (!response.ok) {
       throw new Error('Échec de la génération')
@@ -20,7 +36,7 @@ async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'd
 
     const blob = await response.blob()
     const disposition = response.headers.get('Content-Disposition')
-    const filename = disposition?.match(/filename="(.+)"/)?.[1] ?? 'cv.pdf'
+    const filename = disposition?.match(/filename="(.+)"/)?.[1] ?? 'cv-ats.pdf'
 
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
@@ -30,9 +46,7 @@ async function downloadPdf(endpoint: '/api/cv/pdf' | '/api/cv/pdf-ats', type: 'd
     URL.revokeObjectURL(url)
   }
   catch {
-    error.value = type === 'ats'
-      ? labels.value.ui.atsPdfError
-      : labels.value.ui.pdfError
+    error.value = labels.value.ui.atsPdfError
   }
   finally {
     loading.value = null
@@ -45,16 +59,18 @@ function switchLocale(nextLocale: CvLocale) {
 </script>
 
 <template>
-  <div class="fixed top-6 right-6 z-50 flex flex-col items-end gap-2">
-    <div class="flex gap-2">
+  <div class="cv-toolbar">
+    <div class="cv-toolbar__locales flex gap-2">
       <button
         type="button"
         class="
+          cv-toolbar__locale
           rounded-xl
           border
-          px-4
+          px-3
           py-2
-          text-sm
+          text-xs
+          sm:text-sm
           font-semibold
           backdrop-blur
           transition
@@ -73,11 +89,13 @@ function switchLocale(nextLocale: CvLocale) {
       <button
         type="button"
         class="
+          cv-toolbar__locale
           rounded-xl
           border
-          px-4
+          px-3
           py-2
-          text-sm
+          text-xs
+          sm:text-sm
           font-semibold
           backdrop-blur
           transition
@@ -94,46 +112,50 @@ function switchLocale(nextLocale: CvLocale) {
       </button>
     </div>
 
-    <button
-      type="button"
+    <a
+      :href="CV_PDF_PATH"
+      download="cv-colin-van-migom-1.pdf"
       class="
+        cv-toolbar__btn
+        cv-toolbar__btn--primary
         flex
         items-center
+        justify-center
         gap-2
         rounded-xl
         border
         border-accent
         bg-slate-900/90
-        px-5
-        py-3
+        px-4
+        py-2.5
         text-sm
         font-semibold
         text-glow
         backdrop-blur
         transition
         hover:bg-slate-800
-        disabled:cursor-not-allowed
-        disabled:opacity-60
+        sm:px-5
+        sm:py-3
       "
-      :disabled="loading !== null"
-      @click="downloadPdf('/api/cv/pdf', 'design')"
     >
-      <span v-if="loading === 'design'">{{ labels.ui.generating }}</span>
-      <span v-else>{{ labels.ui.downloadPdf }}</span>
-    </button>
+      {{ labels.ui.downloadPdf }}
+    </a>
 
     <button
+      v-if="showAtsButton"
       type="button"
       class="
+        cv-toolbar__btn
         flex
         items-center
+        justify-center
         gap-2
         rounded-xl
         border
         border-slate-600
         bg-slate-900/90
-        px-5
-        py-3
+        px-4
+        py-2.5
         text-sm
         font-semibold
         text-slate-200
@@ -142,9 +164,11 @@ function switchLocale(nextLocale: CvLocale) {
         hover:bg-slate-800
         disabled:cursor-not-allowed
         disabled:opacity-60
+        sm:px-5
+        sm:py-3
       "
       :disabled="loading !== null"
-      @click="downloadPdf('/api/cv/pdf-ats', 'ats')"
+      @click="downloadAtsPdf"
     >
       <span v-if="loading === 'ats'">{{ labels.ui.generating }}</span>
       <span v-else>{{ labels.ui.downloadAtsPdf }}</span>

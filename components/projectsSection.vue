@@ -60,17 +60,21 @@ function isSvgImage(src: string) {
       cv-web-projects
       max-w-7xl
       mx-auto
-      mt-12
+      mt-8
+      sm:mt-12
       bg-slate-900/70
-      rounded-3xl
-      p-8
+      rounded-2xl
+      sm:rounded-3xl
+      p-5
+      sm:p-6
+      lg:p-8
       border
       border-accent
     "
   >
     <CvSectionTitle
       icon="web-projects"
-      class="text-glow font-bold text-3xl mb-8"
+      class="text-glow font-bold text-2xl sm:text-3xl mb-6 sm:mb-8"
     >
       {{ labels.sections.webProjects }}
     </CvSectionTitle>

@@ -27,10 +27,15 @@ useHead({
 <template>
   <main
     class="
+      cv-page
       min-h-screen
       bg-[#07111d]
       text-white
-      p-8
+      px-4
+      py-6
+      sm:px-6
+      sm:py-8
+      lg:px-8
     "
     :class="{
       'pdf-mode': isPdfMode,
@@ -48,8 +53,10 @@ useHead({
         max-w-7xl
         mx-auto
         grid
+        grid-cols-1
         lg:grid-cols-[350px_1fr]
-        gap-8
+        gap-6
+        lg:gap-8
       "
     >
       <sidebar />

@@ -18,6 +18,13 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
       technologies: ['Vue.js', 'Node.js', 'React', 'Docker'],
     },
     {
+      title: 'Gestionnaire de dressing personnalisé',
+      description: 'Gestionnaire de dressing personnel pour les particuliers, de la conception Figma à la mise en production.',
+      image: '/projects/dressing.png',
+      url: 'https://magical-wardrobe-web.onrender.com/',
+      technologies: ['Nuxt 3', 'Node.js', 'Tailwind CSS', 'Cloudflare R2', 'PostgreSQL'],
+    },
+    {
       title: 'Jeux de plateaux en ligne',
       description: 'Plateforme de jeux de plateaux en ligne pour 2 joueurs, de la conception Figma à la mise en production.',
       image: '/projects/tabletop.png',
@@ -26,7 +33,7 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
     },
     {
       title: 'Plateforme Marché de skins Counter-Strike',
-      description: 'Plateforme de gestion de marché de skins Counter-Strike, utilisant un LLM pour la récupération des données et l\'analyse des prix',
+      description: 'Plateforme de gestion de marché de skins Counter-Strike, utilisant un LLM pour la récupération des données et l\'analyse des prix.',
       image: '/projects/cs2.png',
       url: 'https://github.com/IcarimusAFK/CS2Genie',
       technologies: ['Vue.js', 'Node.js', 'OLLAMA', 'Steam API', 'PostgreSQL'],
@@ -53,6 +60,13 @@ const projectsByLocale: Record<CvLocale, CvProject[]> = {
       image: '/projects/almamater.png',
       url: 'https://manager.e-collegedeparis.com/',
       technologies: ['Vue.js', 'Node.js', 'React', 'Docker'],
+    },
+    {
+      title: 'Personal wardrobe manager',
+      description: 'Personal wardrobe manager for individuals, from Figma design to production deployment.',
+      image: '/projects/dressing.png',
+      url: 'https://magical-wardrobe-web.onrender.com/',
+      technologies: ['Nuxt 3', 'Node.js', 'Tailwind CSS', 'Cloudflare R2', 'PostgreSQL'],
     },
     {
       title: 'Tabletop games online platform',

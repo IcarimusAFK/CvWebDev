@@ -3,7 +3,7 @@ const { education, labels } = useCvData()
 </script>
 
 <template>
-  <section class="bg-slate-900/70 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-accent">
+  <CvSectionCard>
     <CvSectionTitle
       icon="education"
       class="text-glow text-2xl sm:text-3xl font-bold mb-6 sm:mb-8"
@@ -30,5 +30,5 @@ const { education, labels } = useCvData()
         {{ item.date }}
       </div>
     </div>
-  </section>
+  </CvSectionCard>
 </template>

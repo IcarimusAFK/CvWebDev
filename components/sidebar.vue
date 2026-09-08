@@ -9,15 +9,10 @@ function toExternalUrl(value: string) {
 </script>
 
 <template>
-  <aside
-    class="
-      bg-slate-900/70
-      border
-      border-accent
-      rounded-3xl
-      overflow-hidden
-      backdrop-blur
-    "
+  <CvSectionCard
+    tag="aside"
+    :padded="false"
+    class="rounded-3xl overflow-hidden backdrop-blur"
   >
     <div class="p-5 sm:p-6 lg:p-8">
 
@@ -172,5 +167,5 @@ function toExternalUrl(value: string) {
       </div>
 
     </div>
-  </aside>
+  </CvSectionCard>
 </template>

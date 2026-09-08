@@ -3,7 +3,7 @@ const { experiences, labels } = useCvData()
 </script>
 
 <template>
-  <section class="bg-slate-900/70 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-accent">
+  <CvSectionCard>
     <CvSectionTitle
       icon="experience"
       class="text-glow font-bold text-2xl sm:text-3xl mb-6 sm:mb-8"
@@ -41,5 +41,5 @@ const { experiences, labels } = useCvData()
         </li>
       </ul>
     </div>
-  </section>
+  </CvSectionCard>
 </template>

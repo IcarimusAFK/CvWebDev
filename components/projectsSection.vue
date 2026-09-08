@@ -55,21 +55,13 @@ function isSvgImage(src: string) {
 </script>
 
 <template>
-  <section
+  <CvSectionCard
     class="
       cv-web-projects
       max-w-7xl
       mx-auto
       mt-8
       sm:mt-12
-      bg-slate-900/70
-      rounded-2xl
-      sm:rounded-3xl
-      p-5
-      sm:p-6
-      lg:p-8
-      border
-      border-accent
     "
   >
     <CvSectionTitle
@@ -226,7 +218,7 @@ function isSvgImage(src: string) {
         @click="scrollToIndex(index)"
       />
     </div>
-  </section>
+  </CvSectionCard>
 </template>
 
 <style scoped>

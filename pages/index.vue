@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const { locale } = useCvLocale()
+const { isIntroComplete } = useCvIntro()
 const isPdfMode = computed(() => route.query.pdf === '1')
 const isAtsPdfMode = computed(() => route.query.pdf === 'ats')
 const isExportMode = computed(() => isPdfMode.value || isAtsPdfMode.value)
@@ -40,9 +41,21 @@ useHead({
     :class="{
       'pdf-mode': isPdfMode,
       'ats-pdf-mode': isAtsPdfMode,
+      'cv-page--intro-pending': !isIntroComplete && !isExportMode,
     }"
   >
-    <PdfExportButton v-if="!isExportMode" />
+    <ClientOnly>
+      <CvIntroLoader v-if="!isExportMode" />
+
+      <template #fallback>
+        <div
+          class="cv-intro-fallback"
+          aria-hidden="true"
+        />
+      </template>
+    </ClientOnly>
+
+    <PdfExportButton v-if="!isExportMode && isIntroComplete" />
 
     <AtsCvView v-if="isAtsPdfMode" />
 
@@ -71,3 +84,22 @@ useHead({
     <ProjectsSection v-if="!isExportMode" />
   </main>
 </template>
+
+<style scoped>
+.cv-intro-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #07111d;
+}
+
+.cv-page--intro-pending :deep(.cv-layout),
+.cv-page--intro-pending :deep(.cv-web-projects) {
+  opacity: 0;
+}
+
+.cv-page :deep(.cv-layout),
+.cv-page :deep(.cv-web-projects) {
+  transition: opacity 0.5s ease;
+}
+</style>

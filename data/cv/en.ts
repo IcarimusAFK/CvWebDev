@@ -108,6 +108,7 @@ export const enCv: CvContent = {
       switchToEnglish: 'English',
       switchToFrench: 'French',
       profilePhotoAlt: 'Profile photo',
+      welcome: 'Welcome',
     },
     ats: {
       about: 'About',

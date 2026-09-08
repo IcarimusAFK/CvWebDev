@@ -55,6 +55,7 @@ export interface CvLabels {
     switchToEnglish: string
     switchToFrench: string
     profilePhotoAlt: string
+    welcome: string
   }
   ats: {
     about: string

@@ -2,6 +2,7 @@
 import profilePhoto from '~/assets/profile.png'
 
 const { profile, labels } = useCvData()
+const { isIntroComplete, profilePhotoEl } = useCvIntro()
 
 function toExternalUrl(value: string) {
   return value.startsWith('http') ? value : `https://${value}`
@@ -16,7 +17,11 @@ function toExternalUrl(value: string) {
   >
     <div class="p-5 sm:p-6 lg:p-8">
 
-      <div class="profile-photo mx-auto border-4 border-accent-solid">
+      <div
+        ref="profilePhotoEl"
+        class="profile-photo mx-auto border-4 border-accent-solid transition-opacity duration-300"
+        :class="{ 'opacity-0': !isIntroComplete }"
+      >
         <img
           :src="profilePhoto"
           :alt="labels.ui.profilePhotoAlt"

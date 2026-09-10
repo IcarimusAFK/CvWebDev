@@ -33,9 +33,9 @@ useHead({
       bg-[#07111d]
       text-white
       px-4
-      py-6
+      pt-6
       sm:px-6
-      sm:py-8
+      sm:pt-8
       lg:px-8
     "
     :class="{

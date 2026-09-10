@@ -76,7 +76,11 @@ body {
 
 @media (max-width: 639px) {
   .cv-page {
-    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(9rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .cv-web-projects {
+    scroll-margin-bottom: calc(9rem + env(safe-area-inset-bottom, 0px));
   }
 
   .cv-toolbar__locales {

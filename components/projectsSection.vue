@@ -60,8 +60,6 @@ function isSvgImage(src: string) {
       cv-web-projects
       max-w-7xl
       mx-auto
-      mt-8
-      sm:mt-12
     "
   >
     <CvSectionTitle

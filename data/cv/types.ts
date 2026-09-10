@@ -56,6 +56,7 @@ export interface CvLabels {
     switchToFrench: string
     profilePhotoAlt: string
     welcome: string
+    typewriterPhrases: string[]
   }
   ats: {
     about: string

@@ -109,6 +109,15 @@ export const enCv: CvContent = {
       switchToFrench: 'French',
       profilePhotoAlt: 'Profile photo',
       welcome: 'Welcome',
+      typewriterPhrases: [
+        'Personal or professional website ?',
+        'CRM/ERP tool ?',
+        'Mobile app ?',
+        'SEO and accessibility ?',
+        'E-commerce platform ?',
+        'Chatbot ?',
+        'I will put all my skills at your disposal to realize your project !',
+      ],
     },
     ats: {
       about: 'About',

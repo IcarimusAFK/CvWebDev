@@ -109,6 +109,15 @@ export const frCv: CvContent = {
       switchToFrench: 'Français',
       profilePhotoAlt: 'Photo de profil',
       welcome: 'Bienvenue',
+      typewriterPhrases: [
+        'Site web personnel ou professionnel ?',
+        'Outil de gestion CRM/ERP ?',
+        'Application mobile ?',
+        'SEO et accessibilité ?',
+        'Plateforme e-commerce ?',
+        'Chatbot ?',
+        'Je mettrais toutes mes compétences à disposition pour réaliser votre projet !',
+      ],
     },
     ats: {
       about: 'À propos',

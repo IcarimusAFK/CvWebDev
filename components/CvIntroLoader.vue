@@ -97,11 +97,14 @@ onMounted(() => {
         class="cv-intro__photo border-4 border-accent-solid"
         :class="{ 'cv-intro__photo--entering': phase === 'entering' }"
       >
-        <img
+        <CvImage
           :src="profilePhoto"
           :alt="labels.ui.profilePhotoAlt"
-          class="cv-intro__photo-img"
-        >
+          :fallback-label="labels.ui.profilePhotoAlt"
+          img-class="cv-intro__photo-img"
+          fallback-class="cv-intro__photo-fallback"
+          loading="eager"
+        />
       </div>
 
       <Transition name="cv-intro-welcome">
@@ -146,11 +149,20 @@ onMounted(() => {
   animation: cv-intro-spin-in 1.2s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
 }
 
-.cv-intro__photo-img {
+.cv-intro__photo-img,
+.cv-intro__photo-fallback {
   width: 100%;
   height: 100%;
+}
+
+.cv-intro__photo-img {
   object-fit: cover;
   object-position: center 28%;
+}
+
+.cv-intro__photo-fallback {
+  min-height: 0;
+  border-radius: 9999px;
 }
 
 .cv-intro__welcome {

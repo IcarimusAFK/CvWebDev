@@ -91,6 +91,7 @@ export const enCv: CvContent = {
       education: 'EDUCATION',
       technicalSkills: 'TECHNICAL SKILLS',
       webProjects: 'WEB PROJECTS',
+      ongoingProjects: 'ONGOING PROJECTS',
     },
     skillCategories: {
       frontend: 'Frontend',
@@ -118,6 +119,8 @@ export const enCv: CvContent = {
         'Chatbot ?',
         'I will put all my skills at your disposal to realize your project !',
       ],
+      ongoingScreenshotsSoon: 'Screenshots coming soon',
+      viewProject: 'View project',
     },
     ats: {
       about: 'About',

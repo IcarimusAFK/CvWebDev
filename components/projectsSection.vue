@@ -107,13 +107,14 @@ function isSvgImage(src: string) {
           class="projects-carousel__slide"
         >
           <div class="project-card group">
-            <img
+            <CvImage
               v-if="isSvgImage(project.image)"
               :src="project.image"
               :alt="project.title"
-              class="project-card__image project-card__image--native"
-              loading="lazy"
-            >
+              :fallback-label="project.title"
+              img-class="project-card__image project-card__image--native"
+              fallback-class="project-card__image-fallback project-card__image-fallback--native"
+            />
 
             <div
               v-else
@@ -125,12 +126,13 @@ function isSvgImage(src: string) {
                 </p>
 
                 <div class="project-card__media">
-                  <img
+                  <CvImage
                     :src="project.image"
                     :alt="project.title"
-                    class="project-card__image"
-                    loading="lazy"
-                  >
+                    :fallback-label="project.title"
+                    img-class="project-card__image"
+                    fallback-class="project-card__image-fallback"
+                  />
                 </div>
               </div>
             </div>
@@ -320,14 +322,29 @@ function isSvgImage(src: string) {
   transition: filter 0.35s ease, transform 0.35s ease;
 }
 
-.project-card__image--native {
+.project-card__image-fallback {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 6rem;
+  width: 100%;
+}
+
+.project-card__image--native,
+.project-card__image-fallback--native {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   max-width: none;
   max-height: none;
+}
+
+.project-card__image--native {
   object-fit: cover;
+}
+
+.project-card__image-fallback--native {
+  min-height: 0;
 }
 
 .project-card__overlay {

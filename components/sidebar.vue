@@ -22,10 +22,13 @@ function toExternalUrl(value: string) {
         class="profile-photo mx-auto border-4 border-accent-solid transition-opacity duration-300"
         :class="{ 'opacity-0': !isIntroComplete }"
       >
-        <img
+        <CvImage
           :src="profilePhoto"
           :alt="labels.ui.profilePhotoAlt"
-          class="profile-photo__img"
+          :fallback-label="profile.name"
+          img-class="profile-photo__img"
+          fallback-class="profile-photo__fallback"
+          loading="eager"
         />
       </div>
 

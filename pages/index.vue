@@ -84,6 +84,7 @@ useHead({
     <CvTypewriterTags v-if="!isExportMode" />
 
     <ProjectsSection v-if="!isExportMode" />
+    <OngoingProjectsSection v-if="!isExportMode" />
   </main>
 </template>
 
@@ -97,13 +98,15 @@ useHead({
 
 .cv-page--intro-pending :deep(.cv-layout),
 .cv-page--intro-pending :deep(.cv-typewriter),
-.cv-page--intro-pending :deep(.cv-web-projects) {
+.cv-page--intro-pending :deep(.cv-web-projects),
+.cv-page--intro-pending :deep(.cv-ongoing-projects) {
   opacity: 0;
 }
 
 .cv-page :deep(.cv-layout),
 .cv-page :deep(.cv-typewriter),
-.cv-page :deep(.cv-web-projects) {
+.cv-page :deep(.cv-web-projects),
+.cv-page :deep(.cv-ongoing-projects) {
   transition: opacity 0.5s ease;
 }
 </style>

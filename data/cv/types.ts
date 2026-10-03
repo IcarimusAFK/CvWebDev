@@ -43,6 +43,7 @@ export interface CvLabels {
     education: string
     technicalSkills: string
     webProjects: string
+    ongoingProjects: string
   }
   skillCategories: Record<keyof CvSkills, string>
   ui: {
@@ -57,6 +58,8 @@ export interface CvLabels {
     profilePhotoAlt: string
     welcome: string
     typewriterPhrases: string[]
+    ongoingScreenshotsSoon: string
+    viewProject: string
   }
   ats: {
     about: string

@@ -8,6 +8,7 @@ type SectionIcon =
   | 'education'
   | 'technical-skills'
   | 'web-projects'
+  | 'ongoing-projects'
 
 const props = withDefaults(defineProps<{
   icon: SectionIcon
@@ -175,6 +176,34 @@ const props = withDefaults(defineProps<{
           stroke="#2EE6C5"
           stroke-width="2"
           stroke-linecap="round"
+        />
+      </svg>
+
+      <svg
+        v-else-if="props.icon === 'ongoing-projects'"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M12 8V12L15 15"
+          stroke="#2EE6C5"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C14.1287 3 16.0871 3.73964 17.6569 4.96891"
+          stroke="#2EE6C5"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M21 3V8H16"
+          stroke="#2EE6C5"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
       </svg>
     </span>

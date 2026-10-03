@@ -39,6 +39,16 @@ function getSkillIconUrl(skill: string) {
 function getCategoryLabel(category: keyof CvSkills) {
   return labels.value.skillCategories[category]
 }
+
+const failedSkillIcons = ref(new Set<string>())
+
+function onSkillIconError(skill: string) {
+  failedSkillIcons.value = new Set(failedSkillIcons.value).add(skill)
+}
+
+function hasSkillIcon(skill: string) {
+  return Boolean(getSkillIconUrl(skill)) && !failedSkillIcons.value.has(skill)
+}
 </script>
 
 <template>
@@ -66,13 +76,14 @@ function getCategoryLabel(category: keyof CvSkills) {
             class="skill-chip inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-slate-700"
           >
             <img
-              v-if="getSkillIconUrl(skill)"
+              v-if="hasSkillIcon(skill)"
               :src="getSkillIconUrl(skill)!"
               :alt="`${skill} logo`"
               class="skill-chip__icon"
               width="16"
               height="16"
               loading="lazy"
+              @error="onSkillIconError(skill)"
             >
             {{ skill }}
           </span>

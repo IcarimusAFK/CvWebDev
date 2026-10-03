@@ -91,6 +91,7 @@ export const frCv: CvContent = {
       education: 'FORMATIONS',
       technicalSkills: 'COMPÉTENCES TECHNIQUES',
       webProjects: 'PROJETS WEB',
+      ongoingProjects: 'PROJETS EN COURS',
     },
     skillCategories: {
       frontend: 'frontend',
@@ -118,6 +119,8 @@ export const frCv: CvContent = {
         'Chatbot ?',
         'Je mettrais toutes mes compétences à disposition pour réaliser votre projet !',
       ],
+      ongoingScreenshotsSoon: 'Screenshots à venir',
+      viewProject: 'Voir le projet',
     },
     ats: {
       about: 'À propos',

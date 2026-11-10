@@ -32,6 +32,13 @@ const ongoingProjectsByLocale: Record<CvLocale, CvOngoingProject[]> = {
       images: projectImages,
       technologies: ['Unity', 'C#'],
     },
+    {
+      title: 'Coach Vocalis',
+      description: 'Application permettant de choisir une musique, puis de chanter au micro. Le chant est analysé en temps réel pour indiquer si la note est trop haute ou trop basse. Un projet pensé pour apprendre Rust, un langage qui m\'intéresse beaucoup et qui s\'impose de plus en plus malgré sa jeunesse.',
+      status: 'En cours',
+      images: [],
+      technologies: ['Rust'],
+    },
   ],
   en: [
     {
@@ -41,6 +48,13 @@ const ongoingProjectsByLocale: Record<CvLocale, CvOngoingProject[]> = {
       logo: logoMyBusinessSchool,
       images: projectImages,
       technologies: ['Unity', 'C#'],
+    },
+    {
+      title: 'Vocal Coach',
+      description: 'An app that lets you pick a song, then sing into your microphone. Your voice is analyzed in real time to show whether the note is too high or too low. A project built to learn Rust, a language I am very interested in and that is gaining ground fast despite being relatively young.',
+      status: 'In progress',
+      images: [],
+      technologies: ['Rust'],
     },
   ],
 }

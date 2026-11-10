@@ -4,6 +4,7 @@ import pagescreen from '~/assets/infoProjects/pagescreen.png'
 import screenjeu1 from '~/assets/infoProjects/screenjeu1.png'
 import screenjeu2 from '~/assets/infoProjects/screenjeu2.png'
 import screenjeu3 from '~/assets/infoProjects/screenjeu3.png'
+import screenvocalcoach1 from '~/assets/infoProjects/vocalis.png'
 
 export interface CvOngoingProject {
   title: string
@@ -22,6 +23,10 @@ const projectImages = [
   screenjeu3,
 ]
 
+const projectImagesVocalCoach = [
+  screenvocalcoach1,
+]
+
 const ongoingProjectsByLocale: Record<CvLocale, CvOngoingProject[]> = {
   fr: [
     {
@@ -36,7 +41,7 @@ const ongoingProjectsByLocale: Record<CvLocale, CvOngoingProject[]> = {
       title: 'Coach Vocalis',
       description: 'Application d\'entraînement au chant. Un projet pensé pour apprendre Rust, un langage qui m\'intéresse beaucoup et qui s\'impose de plus en plus malgré sa jeunesse.',
       status: 'En cours',
-      images: [],
+      images: projectImagesVocalCoach,
       technologies: ['Rust'],
     },
   ],
@@ -53,7 +58,7 @@ const ongoingProjectsByLocale: Record<CvLocale, CvOngoingProject[]> = {
       title: 'Vocal Coach',
       description: 'An app to train your voice. A project built to learn Rust, a language I am very interested in and that is gaining ground fast despite being relatively young.',
       status: 'In progress',
-      images: [],
+      images: projectImagesVocalCoach,
       technologies: ['Rust'],
     },
   ],
